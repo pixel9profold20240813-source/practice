@@ -41,7 +41,7 @@ export default function SettingsScreen({ quizSets, customSets, onAddCustomSet, o
           <>
             <div className="space-y-3 mb-6">
               {quizSets.map((set) => (
-                <div key={set.id} className="border border-[#e5e2da] bg-white p-4 flex items-center justify-between">
+                <div key={set.id} className="border border-[#e5e2da] bg-white p-4 flex items-center justify-between rounded-2xl">
                   <div>
                     <div className="font-mono font-bold text-[#1a1a1a]">
                       {set.meta.year}年 {set.meta.subjectLabel}科
@@ -57,7 +57,7 @@ export default function SettingsScreen({ quizSets, customSets, onAddCustomSet, o
                           onDeleteCustomSet(set.id);
                         }
                       }}
-                      className="text-xs text-[#9a3324] border border-[#9a3324] px-3 py-1 shrink-0"
+                      className="text-xs text-[#9a3324] border border-[#9a3324] px-3 py-1 shrink-0 rounded-xl"
                     >
                       刪除
                     </button>
@@ -68,7 +68,7 @@ export default function SettingsScreen({ quizSets, customSets, onAddCustomSet, o
 
             <button
               onClick={() => setMode("add")}
-              className="w-full border border-[#9a3324] text-[#9a3324] py-4 font-semibold"
+              className="w-full border border-[#9a3324] text-[#9a3324] py-4 font-semibold rounded-2xl"
             >
               ＋ 新增題庫
             </button>
@@ -84,24 +84,24 @@ export default function SettingsScreen({ quizSets, customSets, onAddCustomSet, o
               value={pasteText}
               onChange={(e) => { setPasteText(e.target.value); setError(""); }}
               placeholder="在這裡貼上 JSON 內容..."
-              className="w-full h-64 border border-[#ccc] p-3 text-xs font-mono mb-3 resize-none"
+              className="w-full h-64 border border-[#ccc] p-3 text-xs font-mono mb-3 resize-none rounded-xl"
             />
             {error && (
-              <div className="text-xs text-[#9a3324] bg-[#faeae7] border border-[#9a3324] px-3 py-2 mb-3">
+              <div className="text-xs text-[#9a3324] bg-[#faeae7] border border-[#9a3324] px-3 py-2 mb-3 rounded-xl">
                 ⚠ {error}
               </div>
             )}
             <div className="flex gap-3">
               <button
                 onClick={() => { setMode("list"); setPasteText(""); setError(""); }}
-                className="flex-1 border border-[#ccc] text-[#555] py-3 font-semibold"
+                className="flex-1 border border-[#ccc] text-[#555] py-3 font-semibold rounded-2xl"
               >
                 取消
               </button>
               <button
                 onClick={handleSubmit}
                 disabled={!pasteText.trim()}
-                className="flex-1 bg-[#9a3324] disabled:bg-[#ddd] text-[#faf9f6] py-3 font-semibold"
+                className="flex-1 bg-[#9a3324] disabled:bg-[#ddd] text-[#faf9f6] py-3 font-semibold rounded-2xl"
               >
                 確認新增
               </button>
